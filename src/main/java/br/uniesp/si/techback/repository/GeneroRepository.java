@@ -43,4 +43,6 @@ public interface GeneroRepository extends JpaRepository<Genero, Long> {
      * @return Lista de gêneros que correspondem ao termo
      */
     List<Genero> findByNomeContainingIgnoreCase(String termo);
+
+    boolean existsByNomeIgnoreCaseAndIdNot(String nome, Long id);
 }

@@ -67,13 +67,13 @@ public class PlanosService {
             plano.setAtivo(planoAtualizado.getAtivo());
 
             return planosRepository.save(plano);
-        }).orElseThrow(() -> new RecursoNaoEncontradoException("Plano não encontrado com o ID: " + id));
+        }).orElseThrow(() -> new EntidadeNaoEncontradaException("Plano não encontrado com o ID: " + id));
     }
 
     @Transactional
     public void excluir(Long id) {
         if (!planosRepository.existsById(id)) {
-            throw new RecursoNaoEncontradoException("Plano não encontrado com o ID: " + id);
+            throw new EntidadeNaoEncontradaException("Plano não encontrado com o ID: " + id);
         }
         planosRepository.deleteById(id);
     }
