@@ -1,23 +1,21 @@
 package br.uniesp.si.techback.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
 import java.time.LocalDate;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.RequiredArgsConstructor;
+
 
 @Data
-@NoArgsConstructor
+
 @AllArgsConstructor
 @Getter
 @Setter
-@RequiredArgsConstructor
+@Entity
+@Table(name = "series")
+
 public class Serie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,5 +44,7 @@ public class Serie {
 
     @Column(name = "duracao_minutos")
     private Integer duracaoMinutos;
+ public Serie(){
 
+ }
 }

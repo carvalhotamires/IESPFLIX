@@ -5,6 +5,7 @@ import br.uniesp.si.techback.service.SerieService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 
@@ -24,7 +25,7 @@ public class SerieController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ResponseEntity<Serie>> buscarPorId(@PathVariable Long id) {
+    public ResponseEntity<Serie> buscarPorId(@PathVariable Long id) {
         try {
             return ResponseEntity.ok(serieService.buscarPorId(id));
         } catch (Exception e) {
