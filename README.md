@@ -16,12 +16,13 @@
   </p>
   <h2>👥 Equipe de Desenvolvimento</h2>
   <ul>
-    <li><strong>Harison Heim Veloso Filho</strong></li>
-    <li><strong>Lanusse Helena de Almeida Silveira</strong></li>
-    <li><strong>Lucivânia Ramiro de Araújo</strong></li>
-    <li><strong>Maria Renata da Silva Bezerra</strong></li>
-    <li><strong>Messias da Silva Guedes</strong></li>
-    <li><strong>Tamires Carvalho da Silva</strong></li>
+    <li><strong>Alberto Lucas</strong></li>
+    <li><strong>Harison Heim</strong></li>
+    <li><strong>Lanusse Silveira</strong></li>
+    <li><strong>Lucivânia Ramiro</strong></li>
+    <li><strong>Maria Renata</strong></li>
+    <li><strong>Messias Guedes</strong></li>
+    <li><strong>Tamires Carvalho</strong></li>
   </ul>
   <h2>⚙️ Funcionalidades</h2>
   <ul>
