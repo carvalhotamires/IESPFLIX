@@ -2,6 +2,7 @@ package br.uniesp.si.techback.controller;
 
 import br.uniesp.si.techback.model.Planos;
 import br.uniesp.si.techback.service.PlanosService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -20,6 +21,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/api/planos")
+@SecurityRequirement(name = "basicAuth")
 public class PlanosController {
     
     private static final int DURACAO_PADRAO_DIAS = 30;

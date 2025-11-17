@@ -38,7 +38,11 @@ public class Usuario {
     @JsonManagedReference
     @ToString.Exclude
     private List<Favoritos> favoritos = new ArrayList<>();
-    
+
+    public String getSenha() {
+        return password;
+    }
+
     public enum UserRole {
         USER, ADMIN
     }

@@ -2,6 +2,7 @@ package br.uniesp.si.techback.controller;
 
 import br.uniesp.si.techback.model.Genero;
 import br.uniesp.si.techback.service.GeneroService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,6 +18,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/api/generos")
+@SecurityRequirement(name = "basicAuth")
 public class GeneroController {
 
     private final GeneroService generoService;

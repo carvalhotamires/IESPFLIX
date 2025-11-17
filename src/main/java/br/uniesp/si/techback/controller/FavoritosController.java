@@ -2,6 +2,7 @@ package br.uniesp.si.techback.controller;
 
 import br.uniesp.si.techback.model.Favoritos;
 import br.uniesp.si.techback.service.FavoritosService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/favoritos")
+@SecurityRequirement(name = "basicAuth")
 public class FavoritosController {
 
     private final FavoritosService favoritosService;

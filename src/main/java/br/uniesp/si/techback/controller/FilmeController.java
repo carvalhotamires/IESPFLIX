@@ -2,6 +2,7 @@ package br.uniesp.si.techback.controller;
 
 import br.uniesp.si.techback.model.Filme;
 import br.uniesp.si.techback.service.FilmeService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/filmes")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "basicAuth")
 public class FilmeController {
 
     private final FilmeService filmeService;

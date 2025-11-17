@@ -5,6 +5,7 @@ import br.uniesp.si.techback.dto.UsuarioResponse;
 import br.uniesp.si.techback.exception.EntidadeNaoEncontradaException;
 import br.uniesp.si.techback.model.Usuario;
 import br.uniesp.si.techback.repository.UsuarioRepository;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -21,6 +22,7 @@ import java.net.URI;
 @Slf4j
 @RestController
 @RequestMapping("/api/usuarios")
+@SecurityRequirement(name = "basicAuth")
 public class UsuarioController {
     private final UsuarioRepository usuarioRepository;
     private final PasswordEncoder passwordEncoder;
