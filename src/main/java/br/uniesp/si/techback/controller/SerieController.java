@@ -1,4 +1,5 @@
 package br.uniesp.si.techback.controller;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.web.bind.annotation.*;
 import br.uniesp.si.techback.model.Serie;
 import br.uniesp.si.techback.service.SerieService;
@@ -15,6 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/series")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "basicAuth")
 public class SerieController {
 
     private final SerieService serieService;

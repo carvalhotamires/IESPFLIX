@@ -2,6 +2,7 @@ package br.uniesp.si.techback.controller;
 
 import br.uniesp.si.techback.model.Enderecos;
 import br.uniesp.si.techback.service.EnderecosService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/enderecos")
+@SecurityRequirement(name = "basicAuth")
 public class EnderecosController {
 
     private final EnderecosService enderecosService;

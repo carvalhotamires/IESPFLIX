@@ -2,6 +2,8 @@ package br.uniesp.si.techback.controller;
 
 import br.uniesp.si.techback.dto.ViaCepResponse;
 import br.uniesp.si.techback.service.ViaCepService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/cep")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "basicAuth")
 public class CepController {
 
     private final ViaCepService viaCepService;
