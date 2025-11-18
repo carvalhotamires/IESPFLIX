@@ -47,7 +47,7 @@ public class UsuarioService {
                     usuario.setName(usuarioAtualizado.getName());
                     usuario.setEmail(usuarioAtualizado.getEmail());
                     if (usuarioAtualizado.getPassword() != null && !usuarioAtualizado.getPassword().isEmpty()) {
-                        usuario.setPassword(usuarioAtualizado.getPassword());
+                        usuario.setSenha(usuarioAtualizado.getPassword());
                     }
                     return usuarioRepository.save(usuario);
                 })

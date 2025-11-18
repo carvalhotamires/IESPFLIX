@@ -1,9 +1,8 @@
 package br.uniesp.si.techback.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Builder;
-import lombok.AllArgsConstructor;
+import lombok.*;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -11,7 +10,10 @@ import java.time.LocalDateTime;
 @Entity
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "planos")
+@Getter
+@Setter
 public class Planos {
     
     @Id
@@ -32,8 +34,9 @@ public class Planos {
     
     @Column(nullable = false)
     private Integer limiteDispositivos;
-    
-    @Column(nullable = false)
+
+    @Builder.Default
+    @Column(name = "tem_anuncios" ,nullable = false)
     private Boolean temAnuncios = false;
     
     @Column(nullable = false, length = 50)
@@ -44,10 +47,12 @@ public class Planos {
     
     @Column(columnDefinition = "TEXT")
     private String observacoes;
-    
-    @Column(nullable = false)
+
+    @Builder.Default
+    @Column(name = "ativo",nullable = false)
     private Boolean ativo = true;
-    
+
+    @Builder.Default
     @Column(name = "data_criacao", nullable = false, updatable = false)
     private LocalDateTime dataCriacao = LocalDateTime.now();
     
@@ -57,19 +62,5 @@ public class Planos {
     @PreUpdate
     protected void onUpdate() {
         this.dataAtualizacao = LocalDateTime.now();
-    }
-    
-    // Construtor padrão necessário para o JPA
-    public Planos() {
-    }
-    
-    // Construtor com parâmetros para facilitar a criação
-    public Planos(String nome, String descricao, BigDecimal preco, 
-                 Integer duracaoDias, Integer limiteDispositivos) {
-        this.nome = nome;
-        this.descricao = descricao;
-        this.preco = preco;
-        this.duracaoDias = duracaoDias;
-        this.limiteDispositivos = limiteDispositivos;
     }
 }

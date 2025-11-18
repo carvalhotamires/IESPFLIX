@@ -6,8 +6,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Data
@@ -15,7 +19,12 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "usuarios")
-public class Usuario {
+@ToString(exclude = {"favoritos"})
+public class Usuario implements UserDetails {
+
+    public enum UserRole {
+        USER, ADMIN
+    }
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,8 +36,8 @@ public class Usuario {
     @Column(nullable = false, unique = true, length = 100)
     private String email;
     
-    @Column(nullable = false)
-    private String password;
+    @Column(name = "password", nullable = false)
+    private String senha;
     
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -36,25 +45,40 @@ public class Usuario {
     
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
-    @ToString.Exclude
-    private List<Favoritos> favoritos = new ArrayList<>();
+    private List<Favoritos> favoritosSeries = new ArrayList<>();
 
-    public String getSenha() {
-        return password;
+    @Override
+    public String getPassword() {
+        return this.senha;
     }
 
-    public enum UserRole {
-        USER, ADMIN
+    @Override
+    public String getUsername() {
+        return this.email;
     }
-    
-    // Métodos utilitários para gerenciar a relação bidirecional
-    public void adicionarFavorito(Favoritos favorito) {
-        favoritos.add(favorito);
-        favorito.setUsuario(this);
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority(this.role.name()));
     }
-    
-    public void removerFavorito(Favoritos favorito) {
-        favoritos.remove(favorito);
-        favorito.setUsuario(null);
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }

@@ -19,9 +19,9 @@ public class Favoritos {
     @ManyToOne
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
-    
-    // Adicione outros campos conforme necessário
-    // Exemplo:
-    // private String nome;
-    // private String descricao;
+
+    @ManyToOne
+    @JoinColumn(name = "serie_id", nullable = false)
+    private Serie serie;
+
 }

@@ -35,7 +35,7 @@ public class DatabaseInitializer {
                     Usuario admin = new Usuario();
                     admin.setName("Admin");
                     admin.setEmail(adminEmail);
-                    admin.setPassword(passwordEncoder.encode(adminPassword));
+                    admin.setSenha(passwordEncoder.encode(adminPassword));
                     admin.setRole(Usuario.UserRole.ADMIN);
                     
                     usuarioRepository.save(admin);
