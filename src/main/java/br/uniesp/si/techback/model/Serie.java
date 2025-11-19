@@ -33,7 +33,7 @@ public class Serie {
     @Column(length = 50)
     private String genero;
 
-    @Column(name = "temporadas")
+    @Column(name = "numero_temporadas")
     private Integer numeroTemporadas;
 
     @Column(name = "classificacao_indicativa", length = 10)

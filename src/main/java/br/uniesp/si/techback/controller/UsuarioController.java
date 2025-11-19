@@ -43,7 +43,7 @@ public class UsuarioController {
         Usuario usuario = new Usuario();
         usuario.setName(usuarioRequest.getName());
         usuario.setEmail(usuarioRequest.getEmail());
-        usuario.setPassword(passwordEncoder.encode(usuarioRequest.getPassword()));
+        usuario.setSenha(passwordEncoder.encode(usuarioRequest.getPassword()));
         
         Usuario usuarioSalvo = usuarioRepository.save(usuario);
         
@@ -81,7 +81,7 @@ public class UsuarioController {
                     
                     // Só atualiza a senha se for fornecida e for diferente da atual
                     if (usuarioRequest.getPassword() != null && !usuarioRequest.getPassword().isEmpty()) {
-                        usuarioExistente.setPassword(passwordEncoder.encode(usuarioRequest.getPassword()));
+                        usuarioExistente.setSenha(passwordEncoder.encode(usuarioRequest.getPassword()));
                     }
                     
                     Usuario usuarioAtualizado = usuarioRepository.save(usuarioExistente);
