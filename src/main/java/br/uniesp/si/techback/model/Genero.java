@@ -1,5 +1,6 @@
 package br.uniesp.si.techback.model;
 
+import br.uniesp.si.techback.validator.PalavrasBloqueadas;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,6 +18,7 @@ public class Genero {
     private Long id;
     
     @Column(nullable = false, unique = true, length = 50)
+    @PalavrasBloqueadas
     private String nome;
     
     @Column(length = 200)
