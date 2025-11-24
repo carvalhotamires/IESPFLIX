@@ -35,11 +35,6 @@ public class UsuarioService {
                 .orElseThrow(() -> new EntidadeNaoEncontradaException("Usuário não encontrado : " + id));
     }
 
-    // Buscar usuário por email
-    public Optional<Usuario> buscarUsuarioPorEmail(String email) {
-        return usuarioRepository.findByEmail(email);
-    }
-
     // Atualizar usuário
     public Usuario atualizarUsuario(Long id, Usuario usuarioAtualizado) {
         return usuarioRepository.findById(id)
